@@ -53,5 +53,44 @@ describe('TodoAPI', () => {
       expect(actualTodos).toEqual(todos);
     });
   });
+
+  describe('filteredTodos', () =>{
+    var todos = [{
+      id: 1,
+      text: "lolplx",
+      completed: true
+    },{
+      id: 2,
+      text: "lolplx",
+      completed: true
+    },{
+      id: 3,
+      text: "lol2plx",
+      completed: false
+    }];
+    it('should return all items if showCompleted is true', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+    it('should return none items if showCompleted is false', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, false, '');
+      expect(filteredTodos.length).toBe(1);
+    });
+    it('should sort by completed status', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+
+      expect(filteredTodos[0].completed).toBe(false);
+    });
+    it('should return all items if searchText is not provided', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+
+      expect(filteredTodos.length).toBe(3);
+    });
+    it('should return two items if we provide lolplx', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'lolplx');
+
+      expect(filteredTodos.length).toBe(2);
+    });
+  });
 });
 });
