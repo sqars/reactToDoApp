@@ -11,7 +11,7 @@ describe('Todo', () => {
     expect(Todo).toExist();
   });
 
-  id('should call onToggle with id on click', () =>{
+  it('should call onToggle with id on click', () =>{
     var todo = {id: 11, text: 'somestring', completed: true};
     var spy = expect.createSpy();
     var todoComponent = TestUtils.renderIntoDocument(<Todo {...todo} onToggle={spy}></Todo>);
