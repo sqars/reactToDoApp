@@ -1,13 +1,15 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var AddTodo = React.createClass({
+export var AddTodo = React.createClass({ // exporting raw component not connected to store
   onSubmit: function(e){
     e.preventDefault();
-
+    var {dispatch} = this.props;
     var todo = this.refs.todo.value;
     if(todo.length > 0){
       this.refs.todo.value = "";
-      this.props.handleAddTodo(todo);
+      dispatch(actions.addTodo(todo));
     } else{
       this.refs.todo.focus();
     }
@@ -24,4 +26,5 @@ var AddTodo = React.createClass({
   }
 });
 
-module.exports = AddTodo;
+
+export default connect()(AddTodo); // dont need any properties of state
