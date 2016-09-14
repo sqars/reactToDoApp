@@ -39,4 +39,20 @@ describe('actions', () =>{
      var res = actions.toggleShowCompleted();
      expect(res).toEqual(toggleShowCompleted);
   });
+
+  it('should generate addTodos action', () =>{
+    var todos = [{
+      id: '111',
+      text: 'sometext',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 222
+    }];
+    var action = {
+      type: 'ADD_TODOS',
+      todos: todos
+    };
+    var res = actions.addTodos(todos);
+    expect(res).toEqual(action);
+  })
 });
