@@ -38,6 +38,7 @@ module.exports = {
     ],
     alias:{
       app: 'app',
+      TodoApp: 'app/components/TodoApp.jsx',
       configureStore: 'app/store/configureStore.jsx',
       reducers: 'app/reducers/reducers.jsx',
       actions: 'app/actions/actions.jsx',
