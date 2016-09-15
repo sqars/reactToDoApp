@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.js',
     'script!foundation-sites/dist/foundation.min.js',
-    'app/app.jsx',
+    './app/app.jsx',
   ],
   externals:{
     jquery : 'jQuery'
@@ -25,7 +25,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: 'public/bundle.js'
+    filename: './public/bundle.js'
   },
   resolve: {
     root: __dirname,
