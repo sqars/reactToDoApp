@@ -1,4 +1,4 @@
-var $ = require('jQuery');
+var $ = require('jquery');
 
 module.exports = {
   // setTodos: function(todos){
@@ -16,7 +16,7 @@ module.exports = {
   //   } catch(e){
   //     console.log(e);
   //   }
-  // 
+  //
   //   return $.isArray(todos) ? todos : [];
   // },
   filterTodos: function(todos, showCompleted, searchText){
