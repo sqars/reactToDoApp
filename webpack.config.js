@@ -10,12 +10,12 @@ module.exports = {
     './app/app.jsx'
   ],
   externals: {
-    jquery: 'jQuery'
+    "jquery": 'jQuery'
   },
   plugins: [
     new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery'
+    'window.jQuery': 'jquery',
+    'window.$': 'jquery',
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -53,9 +53,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
       },
-      { test: /vendor\/.+\.(jsx|js)$/,
-        loader: 'imports?jQuery=jquery,$=jquery,this=>window'
-      }
+      {
+            test: /[\/\\]node_modules[\/\\]some-module[\/\\]index\.js$/,
+            loader: "imports?this=>window"
+        }
     ]
   },
   sassLoader: {
