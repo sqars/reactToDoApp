@@ -29,26 +29,25 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
-    modulesDirectories:[
+    modulesDirectories: [
       'node_modules',
       './app/components',
       './app/api'
     ],
-    alias:{
+    alias: {
       app: 'app',
-      TodoApp: 'app/components/TodoApp.jsx',
-      configureStore: 'app/store/configureStore.jsx',
-      reducers: 'app/reducers/reducers.jsx',
+      applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',
-      applicationStyles: 'app/styles/app.scss'
+      reducers: 'app/reducers/reducers.jsx',
+      configureStore: 'app/store/configureStore.jsx'
     },
-    extensions:['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
       {
         loader: 'babel-loader',
-        query:{
+        query: {
           presets: ['react', 'es2015', 'stage-0']
         },
         test: /\.jsx?$/,
@@ -56,10 +55,10 @@ module.exports = {
       }
     ]
   },
-  sassLoader:{
-    includePaths:[
+  sassLoader: {
+    includePaths: [
       path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
-  devtool: process.env.NODE_ENV === 'production' ? undefined : 'inline-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
