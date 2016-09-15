@@ -6,7 +6,6 @@ import TodoList from 'TodoList';
 import AddTodo from 'AddTodo'; // importing default conected
 import TodoSearch from 'TodoSearch';
 
-
 var TodoApp = React.createClass({
   render: function(){
     return(
