@@ -5,12 +5,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: [
-    'script!jquery/dist/jquery.min.js',
+    'script!jquery/dist/jquery.js',
     'script!foundation-sites/dist/foundation.min.js',
     'app/app.jsx',
   ],
   externals:{
-    jquery : 'jquery'
+    jquery : 'jQuery'
   },
   plugins:[
     new webpack.ProvidePlugin({
