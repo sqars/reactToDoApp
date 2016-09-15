@@ -14,8 +14,9 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-    'window.jQuery': 'jquery',
-    'window.$': 'jquery',
+    jQuery: 'jquery',
+    $: 'jquery',
+    'window.jQuery': 'jquery'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -52,11 +53,7 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
-      },
-      {
-            test: /[\/\\]node_modules[\/\\]some-module[\/\\]index\.js$/,
-            loader: "imports?this=>window"
-        }
+      }
     ]
   },
   sassLoader: {
