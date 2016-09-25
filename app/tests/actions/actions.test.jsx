@@ -53,6 +53,26 @@ describe('actions', () =>{
      expect(res).toEqual(toggleShowCompleted);
   });
 
+  it('should generate LOGIN action', () =>{
+    var login = {
+      type: 'LOGIN',
+      uid: 'asdasd',
+      name: 'Maciej'
+    };
+    var res = actions.login(login.uid, login.name);
+
+    expect(res).toEqual(login);
+  });
+
+  it('should generate LOGOUT action', () =>{
+    var logout = {
+      type: 'LOGOUT'
+    };
+    var res = actions.logout();
+
+    expect(res).toEqual(logout);
+  })
+
   it('should generate addTodos action', () =>{
     var todos = [{
       id: '111',
