@@ -101,7 +101,14 @@ describe('reducers', () =>{
       expect(res.name).toEqual(action.name);
     });
 
-    it('should logout', () =>{
+    it('should logout and clear todos', () =>{
+      var todosState = [{
+        id: '111',
+        text: 'sometext',
+        completed: false,
+        completedAt: undefined,
+        createdAt: 222
+      }];
       var state = {
         uid: 'adas',
         name: 'Maciej'
@@ -111,8 +118,9 @@ describe('reducers', () =>{
       };
 
       var res = reducers.authReducer(df(state), df(action));
-
+      var resTodos = reducers.todosReducer(df(todosState), df(action));
       expect(res).toEqual({});
+      expect(resTodos).toEqual([]);
     });
   });
 });
